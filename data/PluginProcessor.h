@@ -59,30 +59,19 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     //==============================================================================
-    // MINOR_SHIFT Core Logic Ported to C++
-    //==============================================================================
-    std::vector<std::string> generateProgression(const std::string& key)
-    {
-        // The progression map from the original JS algorithm
-        static const std::map<std::string, std::vector<std::string>> progressionMap = {
-            {"Bm",  {"Bm", "A", "G"}},
-            {"C#m", {"C#m", "B", "A"}},
-            {"F#m", {"F#m", "E", "D"}},
-            {"Gm",  {"Gm", "F", "Eb"}},
-            {"Dm",  {"Dm", "C", "Bb"}}
-        };
-
-        auto it = progressionMap.find(key);
-        if (it != progressionMap.end())
-        {
-            return it->second;
-        }
-
-        // Return the default "Bm" progression if the key is not found
-        return progressionMap.at("Bm");
-    }
+    // Add APVTS for parameter management
+    juce::AudioProcessorValueTreeState apvts;
 
 private:
+    //==============================================================================
+    // MINOR_SHIFT Core Logic Ported to C++
+    //==============================================================================
+    std::vector<int> getChordNotes(const juce::String& chordName, int octave);
+    std::vector<std::vector<int>> generateProgression(const juce::String& key, int rootNote);
+
+    // Helper function to create the layout of parameters
+    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Minor_shiftAudioProcessor)
 };

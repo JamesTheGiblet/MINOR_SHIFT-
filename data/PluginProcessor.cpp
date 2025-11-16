@@ -133,15 +133,102 @@ bool Minor_shiftAudioProcessor::isBusesLayoutSupported (const BusesLayout& layou
 
 void Minor_shiftAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
+    buffer.clear(); // This is a MIDI effect, so we clear the audio buffer.
 
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+    juce::MidiBuffer processedMidi;
+    int time;
+    juce::MidiMessage msg;
 
-    // ... main processing logic will go here
+    // 1. Iterate over incoming MIDI messages
+    for (const auto metadata : midiMessages)
+    {
+        msg = metadata.getMessage();
+        time = metadata.samplePosition;
+
+        if (msg.isNoteOn())
+        {
+            // 2. An input note is played, so trigger the progression
+            int rootNote = msg.getNoteNumber();
+            auto keyParam = static_cast<juce::AudioParameterChoice*>(apvts.getParameter("KEY"));
+            juce::String selectedKey = keyParam->getCurrentChoiceName();
+
+            // 3. Generate the chord progression based on the selected key
+            auto progression = generateProgression(selectedKey, rootNote);
+
+            // 4. Create new MIDI messages for the chords
+            double samplesPerBeat = getSampleRate() / (getPlayHead()->getPosition()->getBpm().orFallback(120.0) / 60.0);
+            int chordLengthInSamples = static_cast<int>(samplesPerBeat); // Each chord lasts one beat
+
+            int chordStartTime = time;
+            for (const auto& chord : progression)
+            {
+                for (int note : chord)
+                {
+                    // Add Note On message
+                    processedMidi.addEvent(juce::MidiMessage::noteOn(msg.getChannel(), note, (juce::uint8)msg.getVelocity()), chordStartTime);
+                }
+                for (int note : chord)
+                {
+                    // Add Note Off message for the same chord one beat later
+                    processedMidi.addEvent(juce::MidiMessage::noteOff(msg.getChannel(), note), chordStartTime + chordLengthInSamples);
+                }
+                chordStartTime += chordLengthInSamples; // Move to the next beat
+            }
+        }
+        else
+        {
+            // Pass through other MIDI messages (Note Off, CC, etc.)
+            processedMidi.addEvent(msg, time);
+        }
+    }
+
+    midiMessages.swapWith(processedMidi);
 }
+
+//==============================================================================
+// MINOR_SHIFT Core Logic Implementation
+//==============================================================================
+
+std::vector<int> Minor_shiftAudioProcessor::getChordNotes(const juce::String& chordName, int octave)
+{
+    static const std::map<juce::String, int> noteMap = {
+        {"C", 0}, {"C#", 1}, {"Db", 1}, {"D", 2}, {"D#", 3}, {"Eb", 3}, {"E", 4}, {"F", 5},
+        {"F#", 6}, {"Gb", 6}, {"G", 7}, {"G#", 8}, {"Ab", 8}, {"A", 9}, {"A#", 10}, {"Bb", 10}, {"B", 11}
+    };
+
+    bool isMinor = chordName.endsWith("m");
+    juce::String rootName = isMinor ? chordName.upToLastOccurrenceOf("m", false, true) : chordName;
+    int rootNote = 12 * octave + noteMap.at(rootName);
+
+    if (isMinor)
+        return { rootNote, rootNote + 3, rootNote + 7 }; // Minor triad
+    else
+        return { rootNote, rootNote + 4, rootNote + 7 }; // Major triad
+}
+
+std::vector<std::vector<int>> Minor_shiftAudioProcessor::generateProgression(const juce::String& key, int rootNote)
+{
+    static const std::map<juce::String, std::vector<juce::String>> progressionMap = {
+        {"Bm",  {"Bm", "A", "G"}},
+        {"C#m", {"C#m", "B", "A"}},
+        {"F#m", {"F#m", "E", "D"}},
+        {"Gm",  {"Gm", "F", "Eb"}},
+        {"Dm",  {"Dm", "C", "Bb"}}
+    };
+
+    auto it = progressionMap.find(key);
+    const auto& chordNames = (it != progressionMap.end()) ? it->second : progressionMap.at("Bm");
+
+    std::vector<std::vector<int>> progression;
+    int octave = rootNote / 12;
+
+    for (const auto& chordName : chordNames)
+    {
+        progression.push_back(getChordNotes(chordName, octave));
+    }
+    return progression;
+}
+
 
 //==============================================================================
 bool Minor_shiftAudioProcessor::hasEditor() const
@@ -158,14 +245,29 @@ juce::AudioProcessorEditor* Minor_shiftAudioProcessor::createEditor()
 void Minor_shiftAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    auto state = apvts.copyState();
+    std::unique_ptr<juce::XmlElement> xml(state.createXml());
+    copyXmlToBinary(*xml, destData);
 }
 
 void Minor_shiftAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    std::unique_ptr<juce::XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+    if (xmlState.get() != nullptr)
+        if (xmlState->hasTagName(apvts.state.getType()))
+            apvts.replaceState(juce::ValueTree::fromXml(*xmlState));
+}
+
+juce::AudioProcessorValueTreeState::ParameterLayout Minor_shiftAudioProcessor::createParameterLayout()
+{
+    std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
+
+    juce::StringArray keys = { "Bm", "C#m", "F#m", "Gm", "Dm" };
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("KEY", "Key", keys, 0));
+
+    return { params.begin(), params.end() };
 }
 
 //==============================================================================

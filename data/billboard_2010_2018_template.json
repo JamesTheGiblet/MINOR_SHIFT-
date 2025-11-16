@@ -1,0 +1,337 @@
+{
+  "era_summary": {
+    "title": "The Digital Transformation (2010-2018)",
+    "summary": "This period saw the transition from digital downloads (iTunes) as the primary chart driver to streaming (Spotify, Apple Music) becoming the dominant force. The Billboard Hot 100 formula evolved to weigh streaming more heavily, which changed the very nature of a hit song. We moved from catchy, radio-driven pop anthems to often slower, vibe-based 'playlist' tracks.",
+    "key_trends": [
+      "Early 2010s (2010-2013): The reign of 'maximalist' pop, EDM-infused bangers, and the last gasp of pure physical/digital sales.",
+      "Mid 2010s (2014-2016): Hip-Hop and R&B begin its chart dominance, the 'Streaming Boom' begins, and tropical house emerges.",
+      "Late 2010s (2017-2018): Hip-Hop is the undisputed king of the charts. The 'album bomb' strategy becomes common, and Latin music (led by 'Despacito') becomes a global chart force."
+    ]
+  },
+  "years": [
+    {
+      "year": 2010,
+      "year_summary": "The Last Hurrah of Pre-Streaming Pop. Electropop, Dance-Pop, Hip-Pop. Polished, anthemic, and built for radio and club play. Key artists: Katy Perry, Rihanna, Eminem, Ke$ha, Lady Gaga, B.o.B.",
+      "songs": [
+        {
+          "title": "Tik Tok",
+          "artist": "Kesha",
+          "date_reached_#1": "2010-01-02",
+          "weeks_at_#1": 9,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "Electropop",
+          "spotify_id": "0K7CSs6XoHQSb5Z8t2pQ5f"
+        },
+        {
+          "title": "California Gurls",
+          "artist": "Katy Perry ft. Snoop Dogg",
+          "date_reached_#1": "2010-06-19",
+          "weeks_at_#1": 6,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "Dance-Pop",
+          "spotify_id": "3f5gAK9O3LO3aYOJY1sFMy"
+        },
+        {
+          "title": "Love The Way You Lie",
+          "artist": "Eminem ft. Rihanna",
+          "date_reached_#1": "2010-07-31",
+          "weeks_at_#1": 7,
+          "chord_progression": "i-VI-III-VII",
+          "progression_type": "Minor Progression",
+          "genre": "Hip-Hop/Pop",
+          "spotify_id": "2UjSVb7sxfIDoJY7RgYule"
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "year_summary": "The Pop Titan War & Adele's Arrival. Continuing Electropop, but with more theatrical and power-ballad elements. Key artists: Adele, Katy Perry, LMFAO, Lady Gaga, Maroon 5, Pitbull.",
+      "songs": [
+        {
+          "title": "Rolling in the Deep",
+          "artist": "Adele",
+          "date_reached_#1": "2011-05-21",
+          "weeks_at_#1": 7,
+          "chord_progression": "i-VII-VI-VII",
+          "progression_type": "Minor Pop Progression",
+          "genre": "Soul/Pop",
+          "spotify_id": "1c8gk2PeTE04A1pIDH9YMk"
+        },
+        {
+          "title": "Party Rock Anthem",
+          "artist": "LMFAO ft. Lauren Bennett & GoonRock",
+          "date_reached_#1": "2011-06-18",
+          "weeks_at_#1": 6,
+          "chord_progression": "i-VI-III-VII",
+          "progression_type": "EDM Progression",
+          "genre": "Dance-Pop/EDM",
+          "spotify_id": "0IkKz2J93C94Ei4BvDop7P"
+        },
+        {
+          "title": "Firework",
+          "artist": "Katy Perry",
+          "date_reached_#1": "2010-12-11",
+          "weeks_at_#1": 4,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "Pop",
+          "spotify_id": "3lCbBQU4UVS7g64OXICB5h"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "year_summary": "The EDM Takeover & Folk's Surprise. Progressive House drops, 'Folk-Pop' or 'Stomp-Clap,' early Trap influences. Key artists: Carly Rae Jepsen, fun., Gotye, Maroon 5, Taylor Swift, PSY.",
+      "songs": [
+        {
+          "title": "Somebody That I Used To Know",
+          "artist": "Gotye ft. Kimbra",
+          "date_reached_#1": "2012-04-28",
+          "weeks_at_#1": 8,
+          "chord_progression": "i-VII-VI-V",
+          "progression_type": "Alternative Progression",
+          "genre": "Alternative/Indie Pop",
+          "spotify_id": "1kwBwa3u7xJ3SsaOnnepII"
+        },
+        {
+          "title": "Call Me Maybe",
+          "artist": "Carly Rae Jepsen",
+          "date_reached_#1": "2012-06-02",
+          "weeks_at_#1": 9,
+          "chord_progression": "I-V-vi-iii-IV",
+          "progression_type": "Pop Progression",
+          "genre": "Pop",
+          "spotify_id": "0mOiBnj9KdpcluzIejco4L"
+        },
+        {
+          "title": "We Are Young",
+          "artist": "fun. ft. Janelle Monáe",
+          "date_reached_#1": "2012-03-17",
+          "weeks_at_#1": 6,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "Indie Pop/Pop Rock",
+          "spotify_id": "7a86XRg84qjasly9f6bPSD"
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "year_summary": "The Throne is Vacant & New Kings Arrive. The beginning of the 'moody' pop and trap revolution. The EDM beat starts to slow down. Key artists: Macklemore & Ryan Lewis, Robin Thicke, Lorde, Miley Cyrus, Daft Punk.",
+      "songs": [
+        {
+          "title": "Thrift Shop",
+          "artist": "Macklemore & Ryan Lewis ft. Wanz",
+          "date_reached_#1": "2013-02-02",
+          "weeks_at_#1": 6,
+          "chord_progression": "Sample-based",
+          "progression_type": "Hip-Hop Sample",
+          "genre": "Hip-Hop",
+          "spotify_id": "1d14CqkSwcYsHgaKknfWQA"
+        },
+        {
+          "title": "Blurred Lines",
+          "artist": "Robin Thicke ft. T.I. & Pharrell",
+          "date_reached_#1": "2013-06-22",
+          "weeks_at_#1": 12,
+          "chord_progression": "I-IV-I-IV",
+          "progression_type": "Funk Progression",
+          "genre": "Pop/Funk",
+          "spotify_id": "3n3Ppam7vgaVa1iaRUc9Lp"
+        },
+        {
+          "title": "Royals",
+          "artist": "Lorde",
+          "date_reached_#1": "2013-09-28",
+          "weeks_at_#1": 9,
+          "chord_progression": "i-VII-VI",
+          "progression_type": "Minimalist Progression",
+          "genre": "Alternative Pop",
+          "spotify_id": "2dLLR6qlu5UJ5gk0dKz0h3"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "year_summary": "The Rise of Streaming & R&B Resurgence. 'Tropical House,' 'Alternative R&B,' and the continued rise of trap-influenced pop. Key artists: Pharrell Williams, Iggy Azalea, Ariana Grande, Sam Smith, Meghan Trainor.",
+      "songs": [
+        {
+          "title": "Happy",
+          "artist": "Pharrell Williams",
+          "date_reached_#1": "2014-03-08",
+          "weeks_at_#1": 10,
+          "chord_progression": "I-vi-IV-V",
+          "progression_type": "Doo-Wop Progression",
+          "genre": "Pop/Soul",
+          "spotify_id": "60nZcImufyMA1MKQY3dcCH"
+        },
+        {
+          "title": "Fancy",
+          "artist": "Iggy Azalea ft. Charli XCX",
+          "date_reached_#1": "2014-05-17",
+          "weeks_at_#1": 7,
+          "chord_progression": "i-VI-III-VII",
+          "progression_type": "Trap Progression",
+          "genre": "Hip-Hop/Pop",
+          "spotify_id": "0lnAVGsyfI6DjGed6xS8HV"
+        },
+        {
+          "title": "All About That Bass",
+          "artist": "Meghan Trainor",
+          "date_reached_#1": "2014-09-20",
+          "weeks_at_#1": 8,
+          "chord_progression": "I-vi-IV-V",
+          "progression_type": "Doo-Wop Progression",
+          "genre": "Pop/Doo-Wop",
+          "spotify_id": "5jE48hhRu8E6zBDPRSkEq7"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "year_summary": "The Weeknd, Drake, and the 'Hotline Bling' Effect. The 'moody' sound fully takes over. Synth-heavy, slow-tempo R&B and hip-hop dominate. Key artists: The Weeknd, Drake, Wiz Khalifa, Mark Ronson/Bruno Mars, Taylor Swift.",
+      "songs": [
+        {
+          "title": "Uptown Funk",
+          "artist": "Mark Ronson ft. Bruno Mars",
+          "date_reached_#1": "2015-01-17",
+          "weeks_at_#1": 14,
+          "chord_progression": "i-VII-VI-V",
+          "progression_type": "Funk Progression",
+          "genre": "Funk/Pop",
+          "spotify_id": "4rmPQGwcLQjCoFq5NrTA0D"
+        },
+        {
+          "title": "See You Again",
+          "artist": "Wiz Khalifa ft. Charlie Puth",
+          "date_reached_#1": "2015-04-25",
+          "weeks_at_#1": 12,
+          "chord_progression": "vi-IV-I-V",
+          "progression_type": "Pop Ballad Progression",
+          "genre": "Hip-Hop/Pop",
+          "spotify_id": "1s9PKPDny2DvLNa7k6dshp"
+        },
+        {
+          "title": "Can't Feel My Face",
+          "artist": "The Weeknd",
+          "date_reached_#1": "2015-08-29",
+          "weeks_at_#1": 3,
+          "chord_progression": "i-VI-III-VII",
+          "progression_type": "Pop-R&B Progression",
+          "genre": "R&B/Pop",
+          "spotify_id": "6RsWqX8zABZLhZydXxEFOm"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "year_summary": "The Streaming Era is Here. Trap is now the default production style for pop and hip-hop. Dancehall and Latin influences make a comeback. Key artists: Drake, Rihanna, Justin Bieber, The Chainsmokers, Twenty One Pilots.",
+      "songs": [
+        {
+          "title": "One Dance",
+          "artist": "Drake ft. Wizkid & Kyla",
+          "date_reached_#1": "2016-05-21",
+          "weeks_at_#1": 10,
+          "chord_progression": "i-VII-VI",
+          "progression_type": "Afrobeats Progression",
+          "genre": "Hip-Hop/Dancehall",
+          "spotify_id": "1zi7xx7UVEFkmKfv06H8x0"
+        },
+        {
+          "title": "Closer",
+          "artist": "The Chainsmokers ft. Halsey",
+          "date_reached_#1": "2016-08-27",
+          "weeks_at_#1": 12,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "EDM/Pop",
+          "spotify_id": "7BKLCZ1jbUBVqRi2FVlTVw"
+        },
+        {
+          "title": "Love Yourself",
+          "artist": "Justin Bieber",
+          "date_reached_#1": "2016-02-13",
+          "weeks_at_#1": 2,
+          "chord_progression": "I-V-vi-IV",
+          "progression_type": "Pop Punk Progression",
+          "genre": "Pop",
+          "spotify_id": "3hB5DgAiMAQ4DzYbsMq1IT"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "year_summary": "The Latin Invasion & Rap's Dominance. Latin Pop, Trap, and 'Mumble Rap.' Key artists: Luis Fonsi & Daddy Yankee, Ed Sheeran, Kendrick Lamar, Post Malone, Cardi B.",
+      "songs": [
+        {
+          "title": "Despacito",
+          "artist": "Luis Fonsi & Daddy Yankee ft. Justin Bieber",
+          "date_reached_#1": "2017-05-27",
+          "weeks_at_#1": 16,
+          "chord_progression": "i-VII-VI-V",
+          "progression_type": "Latin Pop Progression",
+          "genre": "Latin Pop",
+          "spotify_id": "6habFhsOp2NvshLv26DqMb"
+        },
+        {
+          "title": "Shape of You",
+          "artist": "Ed Sheeran",
+          "date_reached_#1": "2017-01-28",
+          "weeks_at_#1": 12,
+          "chord_progression": "i-VII-VI",
+          "progression_type": "Tropical House Progression",
+          "genre": "Pop",
+          "spotify_id": "7qiZfU4dY1lWllzX7mPBI3"
+        },
+        {
+          "title": "Bodak Yellow",
+          "artist": "Cardi B",
+          "date_reached_#1": "2017-09-30",
+          "weeks_at_#1": 3,
+          "chord_progression": "Minor key, sparse progression",
+          "progression_type": "Trap Progression",
+          "genre": "Hip-Hop/Trap",
+          "spotify_id": "2771LMNxwf62FTAdpJMQfM"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "year_summary": "The Drake Album Bomb & The 'Old Town Road' Prelude. The full consolidation of Trap, Emo-Rap, and the seeds of 'Country-Trap.' Key artists: Drake, Childish Gambino, Post Malone, Maroon 5, Cardi B.",
+      "songs": [
+        {
+          "title": "God's Plan",
+          "artist": "Drake",
+          "date_reached_#1": "2018-01-27",
+          "weeks_at_#1": 11,
+          "chord_progression": "i-VII-VI",
+          "progression_type": "Trap Progression",
+          "genre": "Hip-Hop/Trap",
+          "spotify_id": "6DCZcSspjsKoFjzjrWoCdn"
+        },
+        {
+          "title": "This Is America",
+          "artist": "Childish Gambino",
+          "date_reached_#1": "2018-05-12",
+          "weeks_at_#1": 2,
+          "chord_progression": "Complex, changing progression",
+          "progression_type": "Experimental Hip-Hop",
+          "genre": "Hip-Hop",
+          "spotify_id": "0b9oOr2ZgvyQu88wzixux9"
+        },
+        {
+          "title": "In My Feelings",
+          "artist": "Drake",
+          "date_reached_#1": "2018-07-21",
+          "weeks_at_#1": 10,
+          "chord_progression": "i-VII-VI",
+          "progression_type": "Bounce Progression",
+          "genre": "Hip-Hop",
+          "spotify_id": "0bqKqtlPZjvM0edKXeB2u0"
+        }
+      ]
+    }
+  ]
+}
