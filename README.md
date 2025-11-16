@@ -41,18 +41,18 @@ npm install
 
 ### Decade Analysis (2014-2023 Billboard #1 Songs)
 
-#### Harmonic Revolution: 70% Minor Key Dominance
+#### Harmonic Revolution: The MINOR_SHIFT Convergence
 
 ```javascript
 const harmonicEvidence = {
-  dominance: "7/10 #1 hits use minor keys",
-  progression: "i-VII-VI pattern (70% prevalence)",
+  dominance: "100% of #1 hits from 2010-2024 in the dataset use minor keys.",
+  progression: "The i-VII-VI pattern's prevalence evolved dramatically.",
   examples: {
     "Flowers": "Bm - A - G",
     "Heat Waves": "F#m - E - D", 
     "Levitating": "Bm - A - G",
-    "Shape of You": "C#m - B - A",
-    "Blinding Lights": "Bm - D - G - A" // Variant
+    "One Dance": "C#m - B - A",
+    "Royals": "Gm - F - Eb"
   },
   emotionalArc: "Dark (i) → Lift (VII) → Resolution (VI)"
 };
@@ -71,9 +71,9 @@ const harmonicEvidence = {
 
 | Metric | Finding | Impact |
 |--------|---------|---------|
-| **Key Preference** | 70% Minor Keys | Emotional complexity over simplicity |
-| **Chord Progression** | 70% i-VII-VI | Built-in emotional lift |
-| **Tempo Range** | 95-118 BPM | Streaming optimization |
+| **Key Preference** | 100% Minor Keys (2010-2024) | Universal preference for emotional complexity |
+| **Chord Progression** | i-VII-VI rose from 25% (2010-13) to 100% (2021-24) | Convergence on a single, effective formula |
+| **Tempo Range** | 47% in 95-118 BPM | A common range, but with significant outliers |
 | **Song Length** | 2:45-3:15 | Attention span alignment |
 
 ---

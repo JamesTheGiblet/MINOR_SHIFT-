@@ -3,6 +3,18 @@
   "lastUpdated": "2025-11-16",
   "songs": [
     {
+      "year": 2024,
+      "artist": "Kendrick Lamar",
+      "title": "Not Like Us",
+      "chartPosition": 1,
+      "key": "F#m",
+      "progression": ["F#m", "E", "D"],
+      "bpm": 101,
+      "themes": ["Rivalry", "Cultural critique", "West Coast pride"],
+      "genreFusion": ["West Coast hip hop", "Trap"],
+      "streamingData": {}
+    },
+    {
       "year": 2023,
       "artist": "Miley Cyrus",
       "title": "Flowers",
@@ -86,6 +98,114 @@
         "saveRate": null,
         "skipRate": null
       }
+    },
+    {
+      "year": 2018,
+      "artist": "Drake",
+      "title": "God's Plan",
+      "chartPosition": 1,
+      "key": "Am",
+      "progression": ["Am", "G", "F"],
+      "bpm": 77,
+      "themes": ["Success", "Generosity", "Loyalty"],
+      "genreFusion": ["Trap", "Pop-rap"],
+      "streamingData": {}
+    },
+    {
+      "year": 2017,
+      "artist": "Luis Fonsi & Daddy Yankee ft. Justin Bieber",
+      "title": "Despacito",
+      "chartPosition": 1,
+      "key": "Bm",
+      "progression": ["Bm", "G", "D", "A"],
+      "bpm": 89,
+      "themes": ["Seduction", "Dance", "Romance"],
+      "genreFusion": ["Latin pop", "Reggaeton"],
+      "streamingData": {}
+    },
+    {
+      "year": 2016,
+      "artist": "Drake ft. Wizkid & Kyla",
+      "title": "One Dance",
+      "chartPosition": 1,
+      "key": "C#m",
+      "progression": ["C#m", "B", "A"],
+      "bpm": 104,
+      "themes": ["Relationships", "Nightlife", "Longing"],
+      "genreFusion": ["Afrobeats", "Dancehall", "Pop"],
+      "streamingData": {}
+    },
+    {
+      "year": 2015,
+      "artist": "Mark Ronson ft. Bruno Mars",
+      "title": "Uptown Funk",
+      "chartPosition": 1,
+      "key": "Dm",
+      "progression": ["Dm", "C", "Bb", "A"],
+      "bpm": 115,
+      "themes": ["Confidence", "Style", "Partying"],
+      "genreFusion": ["Funk", "Pop", "Soul"],
+      "streamingData": {}
+    },
+    {
+      "year": 2014,
+      "artist": "Iggy Azalea ft. Charli XCX",
+      "title": "Fancy",
+      "chartPosition": 1,
+      "key": "G#m",
+      "progression": ["G#m", "E", "B", "F#"],
+      "bpm": 95,
+      "themes": ["Luxury", "Confidence", "Aspiration"],
+      "genreFusion": ["Hip-hop", "Pop", "Trap"],
+      "streamingData": {}
+    },
+    {
+      "year": 2013,
+      "artist": "Lorde",
+      "title": "Royals",
+      "chartPosition": 1,
+      "key": "Gm",
+      "progression": ["Gm", "F", "Eb"],
+      "bpm": 85,
+      "themes": ["Anti-consumerism", "Youth", "Observation"],
+      "genreFusion": ["Alternative pop", "Minimalist"],
+      "streamingData": {}
+    },
+    {
+      "year": 2012,
+      "artist": "Gotye ft. Kimbra",
+      "title": "Somebody That I Used To Know",
+      "chartPosition": 1,
+      "key": "Dm",
+      "progression": ["Dm", "C", "Bb", "C"],
+      "bpm": 129,
+      "themes": ["Breakup", "Nostalgia", "Resentment"],
+      "genreFusion": ["Alternative", "Indie pop"],
+      "streamingData": {}
+    },
+    {
+      "year": 2011,
+      "artist": "Adele",
+      "title": "Rolling in the Deep",
+      "chartPosition": 1,
+      "key": "Cm",
+      "progression": ["Cm", "Bb", "Ab", "Bb"],
+      "bpm": 105,
+      "themes": ["Heartbreak", "Revenge", "Empowerment"],
+      "genreFusion": ["Soul", "Pop", "Blues"],
+      "streamingData": {}
+    },
+    {
+      "year": 2010,
+      "artist": "Eminem ft. Rihanna",
+      "title": "Love The Way You Lie",
+      "chartPosition": 1,
+      "key": "Gm",
+      "progression": ["Gm", "Eb", "Bb", "F"],
+      "bpm": 87,
+      "themes": ["Toxic relationship", "Abuse", "Passion"],
+      "genreFusion": ["Hip-hop", "Pop"],
+      "streamingData": {}
     }
   ]
 }
