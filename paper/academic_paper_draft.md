@@ -110,3 +110,142 @@ This study provides a quantitative framework for understanding a live, ongoing e
 ## 7. References (To Be Drafted)
 
 *(This section will list all data sources, prior academic work, and other cited materials.)*
+
+## 7. References
+
+### Primary Data Sources
+
+Billboard. (2010–2024). *Billboard Hot 100 Chart Archives*.  
+Retrieved from <https://www.billboard.com/charts/hot-100/>
+
+Spotify. (2024). *Streaming Data and Chart Performance*.  
+Spotify Desktop Application.
+
+Tunebat. (2024). *Song Key and BPM Database*.  
+Retrieved from <https://tunebat.com/>
+
+Ultimate Guitar. (2024). *Chord Progression Database*.  
+Retrieved from <https://www.ultimate-guitar.com/>
+
+### Academic Literature
+
+Huron, D. (2006). *Sweet Anticipation: Music and the Psychology of Expectation*. MIT Press.
+
+Temperley, D. (2018). *The Musical Language of Rock*. Oxford University Press.
+
+Mauch, M., MacCallum, R. M., Levy, M., & Leroi, A. M. (2015).  
+The evolution of popular music: USA 1960–2010. *Royal Society Open Science*, 2(5), 150081.
+
+von Appen, R., & Frei-Hauenschild, M. (2015).  
+AABA, Refrain, Chorus, Bridge, Prechorus—Song Forms and their Historical Development.  
+*Samples: Online Publication of the Society for Popular Music Studies*, 13.
+
+### Streaming & Algorithm Research
+
+Prey, R. (2018). Nothing personal: algorithmic individuation on music streaming platforms.  
+*Media, Culture & Society*, 40(7), 1086–1100.
+
+Aguiar, L., & Waldfogel, J. (2018). As streaming reaches flood stage, does it stimulate or depress music sales?  
+*International Journal of Industrial Organization*, 57, 278–307.
+
+### Music Theory & Psychology
+
+Meyer, L. B. (1956). *Emotion and Meaning in Music*. University of Chicago Press.
+
+Koelsch, S. (2014). Brain correlates of music-evoked emotions.  
+*Nature Reviews Neuroscience*, 15(3), 170–180.
+
+Juslin, P. N., & Västfjäll, D. (2008). Emotional responses to music: The need to consider underlying mechanisms.  
+*Behavioral and Brain Sciences*, 31(5), 559–575.
+
+---
+
+## Table 2: Complete Song Analysis
+
+| Year | Title                | Artist                                   | Key  | Prog           | i–VII–VI? | BPM | Spotify Streams | Save Rate | Skip Rate |
+|------|----------------------|------------------------------------------|------|---------------|-----------|-----|----------------|-----------|-----------|
+| 2024 | Not Like Us          | Kendrick Lamar                           | F#m  | F#m–E–D        | ✓         | 101 | –              | –         | –         |
+| 2023 | Flowers              | Miley Cyrus                              | Bm   | Bm–A–G         | ✓         | 118 | 1.6B           | 0.12      | 0.21      |
+| 2022 | Heat Waves           | Glass Animals                            | F#m  | F#m–E–D        | ✓         | 81  | 2.5B           | 0.15      | 0.18      |
+| 2021 | Levitating           | Dua Lipa                                 | Bm   | Bm–A–G         | ✓         | 103 | 2.5B           | –         | –         |
+| 2020 | Blinding Lights      | The Weeknd                               | Fm   | Fm–Eb–Db–Ab    | ✗         | 171 | 4.0B           | –         | –         |
+| 2019 | Old Town Road        | Lil Nas X                                | G#m  | G#m–E–B–F#     | ✗         | 136 | 2.0B           | –         | –         |
+| 2018 | God's Plan           | Drake                                    | Am   | Am–G–F         | ✓         | 77  | –              | –         | –         |
+| 2017 | Despacito            | Luis Fonsi & Daddy Yankee ft. J. Bieber  | Bm   | Bm–G–D–A       | ✗         | 89  | –              | –         | –         |
+| 2016 | One Dance            | Drake ft. Wizkid & Kyla                  | C#m  | C#m–B–A        | ✓         | 104 | –              | –         | –         |
+| 2015 | Uptown Funk          | Mark Ronson ft. Bruno Mars               | Dm   | Dm–C–Bb–A      | ✗         | 115 | –              | –         | –         |
+| 2014 | Fancy                | Iggy Azalea ft. Charli XCX               | G#m  | G#m–E–B–F#     | ✗         | 95  | –              | –         | –         |
+| 2013 | Royals               | Lorde                                    | Gm   | Gm–F–Eb        | ✓         | 85  | –              | –         | –         |
+| 2012 | Somebody That I Used To Know | Gotye ft. Kimbra                 | Dm   | Dm–C–Bb–C      | ✗         | 129 | –              | –         | –         |
+| 2011 | Rolling in the Deep  | Adele                                    | Cm   | Cm–Bb–Ab–Bb    | ✗         | 105 | –              | –         | –         |
+| 2010 | Love The Way You Lie | Eminem ft. Rihanna                       | Gm   | Gm–Eb–Bb–F     | ✗         | 87  | –              | –         | –         |
+
+**Legend:**  
+
+* i–VII–VI? = Does the chorus progression match the i–VII–VI pattern (relative minor key)?  
+* Spotify Streams: Rounded to nearest 0.1B where available; “–” = data not present  
+* Save Rate/Skip Rate: As reported in your dataset; “–” = not available
+
+---
+
+## Figure 1: The Convergence Timeline
+
+```
+   i–VII–VI Prevalence Over Time
+100% |                               ●━━━━●
+  |                             ╱
+ 75% |                           ╱
+  |                         ╱
+ 50% |                    ●━━●
+  |                  ╱
+ 25% |        ●━━━━━━●
+  |      
+
+---
+
+## Figure 2: Key Distribution (2010–2024)
+
+### Markdown Bar Chart
+
+```markdown
+Most Common Keys in #1 Hits (2010–2024)
+
+| Key  | Count | Percentage | Bar           |
+|------|-------|------------|---------------|
+| Bm   | 3     | 20%        | ██████████    |
+| F#m  | 2     | 13%        | ███████       |
+| G#m  | 2     | 13%        | ███████       |
+| Gm   | 2     | 13%        | ███████       |
+| Dm   | 2     | 13%        | ███████       |
+| Am   | 1     | 7%         | ███           |
+| Fm   | 1     | 7%         | ███           |
+| C#m  | 1     | 7%         | ███           |
+| Cm   | 1     | 7%         | ███           |
+```
+
+### ASCII Art Histogram
+
+```
+Most Common Keys in #1 Hits (2010–2024)
+
+Bm   ██████████  3 (20%)
+F#m  ███████     2 (13%)
+G#m  ███████     2 (13%)
+Gm   ███████     2 (13%)
+Dm   ███████     2 (13%)
+Am   ███         1 (7%)
+Fm   ███         1 (7%)
+C#m  ███         1 (7%)
+Cm   ███         1 (7%)
+```
+
+  0% |━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  2010  2012  2014  2016  2018  2020  2022  2024
+
+```
+
+---
+
+## Figure 2: Key Distribution (To Be Added)
+
+---
