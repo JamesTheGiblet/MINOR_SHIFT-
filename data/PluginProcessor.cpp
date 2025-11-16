@@ -22,8 +22,13 @@ Minor_shiftAudioProcessor::Minor_shiftAudioProcessor()
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
                        )
+    , apvts(*this, nullptr, "Parameters", createParameterLayout())
 #endif
 {
+    // Add our synth sound and voices
+    synth.addSound(new SynthSound());
+    for (int i = 0; i < 4; ++i) // 4 voices for polyphony
+        synth.addVoice(new SynthVoice());
 }
 
 Minor_shiftAudioProcessor::~Minor_shiftAudioProcessor()
@@ -56,11 +61,11 @@ bool Minor_shiftAudioProcessor::producesMidi() const
 
 bool Minor_shiftAudioProcessor::isMidiEffect() const
 {
-   #if JucePlugin_IsMidiEffect
-    return true;
-   #else
+   // #if JucePlugin_IsMidiEffect
+   //  return true;
+   // #else
     return false;
-   #endif
+   // #endif
 }
 
 double Minor_shiftAudioProcessor::getTailLengthSeconds() const
@@ -97,6 +102,7 @@ void Minor_shiftAudioProcessor::prepareToPlay (double sampleRate, int samplesPer
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    synth.setCurrentPlaybackSampleRate(sampleRate);
 }
 
 void Minor_shiftAudioProcessor::releaseResources()
@@ -133,13 +139,15 @@ bool Minor_shiftAudioProcessor::isBusesLayoutSupported (const BusesLayout& layou
 
 void Minor_shiftAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    buffer.clear(); // This is a MIDI effect, so we clear the audio buffer.
+    // This is now a synth, so we don't clear the audio buffer at the start.
+    // We will render our synth output into it.
+    buffer.clear();
 
-    juce::MidiBuffer processedMidi;
+    // We still want to output MIDI for chaining instruments
+    juce::MidiBuffer processedMidi; 
     int time;
     juce::MidiMessage msg;
 
-    // 1. Iterate over incoming MIDI messages
     for (const auto metadata : midiMessages)
     {
         msg = metadata.getMessage();
@@ -147,42 +155,94 @@ void Minor_shiftAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, 
 
         if (msg.isNoteOn())
         {
-            // 2. An input note is played, so trigger the progression
             int rootNote = msg.getNoteNumber();
             auto keyParam = static_cast<juce::AudioParameterChoice*>(apvts.getParameter("KEY"));
             juce::String selectedKey = keyParam->getCurrentChoiceName();
 
-            // 3. Generate the chord progression based on the selected key
             auto progression = generateProgression(selectedKey, rootNote);
 
-            // 4. Create new MIDI messages for the chords
+            auto melody = generateMelody(progression, msg.getVelocity());
+
             double samplesPerBeat = getSampleRate() / (getPlayHead()->getPosition()->getBpm().orFallback(120.0) / 60.0);
-            int chordLengthInSamples = static_cast<int>(samplesPerBeat); // Each chord lasts one beat
+            int chordLengthInSamples = static_cast<int>(samplesPerBeat);
 
             int chordStartTime = time;
             for (const auto& chord : progression)
             {
                 for (int note : chord)
                 {
-                    // Add Note On message
+                    // Add Note On for MIDI output
                     processedMidi.addEvent(juce::MidiMessage::noteOn(msg.getChannel(), note, (juce::uint8)msg.getVelocity()), chordStartTime);
                 }
                 for (int note : chord)
                 {
-                    // Add Note Off message for the same chord one beat later
+                    // Add Note Off for MIDI output
                     processedMidi.addEvent(juce::MidiMessage::noteOff(msg.getChannel(), note), chordStartTime + chordLengthInSamples);
                 }
-                chordStartTime += chordLengthInSamples; // Move to the next beat
+                chordStartTime += chordLengthInSamples;
+            }
+
+            // Add generated melody to the MIDI output
+            for (const auto& melodyMsg : melody)
+            {
+                processedMidi.addEvent(melodyMsg.getMessage(), melodyMsg.getSamplePosition());
             }
         }
         else
         {
-            // Pass through other MIDI messages (Note Off, CC, etc.)
             processedMidi.addEvent(msg, time);
         }
     }
 
+    // The synth now renders audio from our *processed* MIDI buffer, which contains the chords and melody
+    synth.renderNextBlock(buffer, processedMidi, 0, buffer.getNumSamples());
+
+    // We swap our generated MIDI (chords + melody) to be the final output
     midiMessages.swapWith(processedMidi);
+}
+
+//==============================================================================
+// Synth Voice Implementation
+//==============================================================================
+
+void SynthVoice::startNote(int midiNoteNumber, float velocity, juce::SynthesiserSound* sound, int currentPitchWheelPosition)
+{
+    currentAngle = 0.0;
+    level = velocity * 0.15;
+    auto cyclesPerSecond = juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber);
+    auto cyclesPerSample = cyclesPerSecond / getSampleRate();
+    angleDelta = cyclesPerSample * 2.0 * juce::MathConstants<double>::pi;
+
+    adsrParams = { 0.1f, 0.1f, 1.0f, 0.3f }; // Attack, Decay, Sustain, Release
+    adsr.setParameters(adsrParams);
+    adsr.noteOn();
+}
+
+void SynthVoice::stopNote(float velocity, bool allowTailOff)
+{
+    adsr.noteOff();
+    if (!allowTailOff)
+    {
+        clearCurrentNote();
+        angleDelta = 0.0;
+    }
+}
+
+void SynthVoice::renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
+{
+    if (angleDelta != 0.0)
+    {
+        while (--numSamples >= 0)
+        {
+            auto currentSample = (float)(std::sin(currentAngle) * level * adsr.getNextSample());
+
+            for (int i = outputBuffer.getNumChannels(); --i >= 0;)
+                outputBuffer.addSample(i, startSample, currentSample);
+
+            currentAngle += angleDelta;
+            ++startSample;
+        }
+    }
 }
 
 //==============================================================================
@@ -229,6 +289,44 @@ std::vector<std::vector<int>> Minor_shiftAudioProcessor::generateProgression(con
     return progression;
 }
 
+std::vector<juce::MidiMessageMetadata> Minor_shiftAudioProcessor::generateMelody(const std::vector<std::vector<int>>& chordProgression, juce::uint8 velocity)
+{
+    std::vector<juce::MidiMessageMetadata> melody;
+    int channel = 1;
+
+    double samplesPerBeat = getSampleRate() / (getPlayHead()->getPosition()->getBpm().orFallback(120.0) / 60.0);
+    int quarterNoteLength = static_cast<int>(samplesPerBeat);
+    int eighthNoteLength = quarterNoteLength / 2;
+
+    int melodyStartTime = 0;
+
+    for (const auto& chord : chordProgression)
+    {
+        if (chord.size() < 3) continue; // Need at least a triad
+
+        // Simple arpeggio: Root, 3rd, 5th, 3rd (as eighth notes)
+        int note1 = chord[0] + 12; // Play melody an octave higher
+        int note2 = chord[1] + 12;
+        int note3 = chord[2] + 12;
+
+        // Note 1 (Root)
+        melody.emplace_back(juce::MidiMessage::noteOn(channel, note1, velocity), melodyStartTime);
+        melody.emplace_back(juce::MidiMessage::noteOff(channel, note1), melodyStartTime + eighthNoteLength);
+        // Note 2 (3rd)
+        melody.emplace_back(juce::MidiMessage::noteOn(channel, note2, velocity), melodyStartTime + eighthNoteLength);
+        melody.emplace_back(juce::MidiMessage::noteOff(channel, note2), melodyStartTime + 2 * eighthNoteLength);
+        // Note 3 (5th)
+        melody.emplace_back(juce::MidiMessage::noteOn(channel, note3, velocity), melodyStartTime + 2 * eighthNoteLength);
+        melody.emplace_back(juce::MidiMessage::noteOff(channel, note3), melodyStartTime + 3 * eighthNoteLength);
+        // Note 4 (3rd again)
+        melody.emplace_back(juce::MidiMessage::noteOn(channel, note2, velocity), melodyStartTime + 3 * eighthNoteLength);
+        melody.emplace_back(juce::MidiMessage::noteOff(channel, note2), melodyStartTime + 4 * eighthNoteLength);
+
+        melodyStartTime += quarterNoteLength; // Move to the next beat/chord
+    }
+
+    return melody;
+}
 
 //==============================================================================
 bool Minor_shiftAudioProcessor::hasEditor() const
