@@ -696,19 +696,39 @@
         }
 
         function getLyricTemplate() {
-            // Static example lyrics
+            // Expanded static example lyrics for a full pop song
             return {
-                verse: [
+                intro: [
+                    'Shadows fade as the city wakes',
+                    'A new light breaks through the haze'
+                ],
+                verse1: [
                     'I woke up to sunlight, chasing all my fears away',
                     'Dreams lingered in the silence, promising a brand new day',
                     'Every step I’m taking, I can feel the world align',
                     'With every minor shift, I know the stars will start to shine'
+                ],
+                verse2: [
+                    'Walking through the echoes of the stories left behind',
+                    'Every little moment paints a memory in my mind',
+                    'I’m learning from the changes, letting go of what I knew',
+                    'With every minor shift, I find a world that feels brand new'
                 ],
                 chorus: [
                     'So I’ll run, I’ll run, where the music calls my name',
                     'Every note, every change, I’ll never be the same',
                     'With a minor shift, I’ll find my way',
                     'Turning darkness into day'
+                ],
+                bridge: [
+                    'And when the night is closing in, I’ll hold on to the sound',
+                    'A melody that lifts me up whenever I am down',
+                    'I’ll follow every rhythm, let the harmony begin',
+                    'With every minor shift, I’ll rise again'
+                ],
+                outro: [
+                    'With every minor shift, I’ll rise again',
+                    'Turning darkness into day...'
                 ]
             };
         }
@@ -726,18 +746,35 @@
                 html += `<tr><td>${row.chord}</td><td>${row.degrees}</td><td>${row.notes}</td></tr>`;
             });
             html += '</table>';
-            html += `<strong>Lyrics (Verse 1):</strong><br>`;
-            html += '<ul style="margin-bottom:0.5rem;">';
-            lyrics.verse.forEach(line => {
-                html += `<li>${line}</li>`;
-            });
+            // Expanded song structure
+            if (lyrics.intro) {
+                html += `<strong>Lyrics (Intro):</strong><br><ul style="margin-bottom:0.5rem;">`;
+                lyrics.intro.forEach(line => { html += `<li>${line}</li>`; });
+                html += '</ul>';
+            }
+            html += `<strong>Lyrics (Verse 1):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.verse1.forEach(line => { html += `<li>${line}</li>`; });
             html += '</ul>';
-            html += `<strong>Lyrics (Chorus):</strong><br>`;
-            html += '<ul>';
-            lyrics.chorus.forEach(line => {
-                html += `<li>${line}</li>`;
-            });
+            html += `<strong>Lyrics (Chorus):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.chorus.forEach(line => { html += `<li>${line}</li>`; });
             html += '</ul>';
+            html += `<strong>Lyrics (Verse 2):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.verse2.forEach(line => { html += `<li>${line}</li>`; });
+            html += '</ul>';
+            html += `<strong>Lyrics (Chorus):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.chorus.forEach(line => { html += `<li>${line}</li>`; });
+            html += '</ul>';
+            html += `<strong>Lyrics (Bridge):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.bridge.forEach(line => { html += `<li>${line}</li>`; });
+            html += '</ul>';
+            html += `<strong>Lyrics (Chorus):</strong><br><ul style="margin-bottom:0.5rem;">`;
+            lyrics.chorus.forEach(line => { html += `<li>${line}</li>`; });
+            html += '</ul>';
+            if (lyrics.outro) {
+                html += `<strong>Lyrics (Outro):</strong><br><ul style="margin-bottom:0.5rem;">`;
+                lyrics.outro.forEach(line => { html += `<li>${line}</li>`; });
+                html += '</ul>';
+            }
             return html;
         }
 
@@ -843,7 +880,7 @@
                 const verseLines = extractLines(verseMatch ? verseMatch[1] : '');
                 const chorusLines = extractLines(chorusMatch ? chorusMatch[1] : '');
 
-                // Build text
+                // Build text for full song structure
                 let text = '';
                 text += `Key: ${key}\n`;
                 text += `Chord Progression: ${progression}\n\n`;
@@ -852,14 +889,27 @@
                 melodyRows.forEach(row => {
                     text += `${row.chord}\t${row.degrees}\t${row.notes}\n`;
                 });
+                const lyrics = getLyricTemplate();
+                if (lyrics.intro) {
+                    text += '\nLyrics (Intro):\n';
+                    lyrics.intro.forEach(line => { text += `- ${line}\n`; });
+                }
                 text += '\nLyrics (Verse 1):\n';
-                verseLines.forEach(line => {
-                    text += `- ${line}\n`;
-                });
+                lyrics.verse1.forEach(line => { text += `- ${line}\n`; });
                 text += '\nLyrics (Chorus):\n';
-                chorusLines.forEach(line => {
-                    text += `- ${line}\n`;
-                });
+                lyrics.chorus.forEach(line => { text += `- ${line}\n`; });
+                text += '\nLyrics (Verse 2):\n';
+                lyrics.verse2.forEach(line => { text += `- ${line}\n`; });
+                text += '\nLyrics (Chorus):\n';
+                lyrics.chorus.forEach(line => { text += `- ${line}\n`; });
+                text += '\nLyrics (Bridge):\n';
+                lyrics.bridge.forEach(line => { text += `- ${line}\n`; });
+                text += '\nLyrics (Chorus):\n';
+                lyrics.chorus.forEach(line => { text += `- ${line}\n`; });
+                if (lyrics.outro) {
+                    text += '\nLyrics (Outro):\n';
+                    lyrics.outro.forEach(line => { text += `- ${line}\n`; });
+                }
                 // Add an extra newline after each lyric section for clarity
                 text = text.replace(/\n- /g, '\n- ');
 
