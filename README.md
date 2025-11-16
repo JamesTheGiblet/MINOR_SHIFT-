@@ -10,10 +10,32 @@
 
 **MINOR_SHIFT** is a comprehensive AI-powered system that analyzes decade of Billboard data, real-time cultural context, and psychological patterns to generate music with mathematically optimized hit potential. It represents the fusion of data science, music theory, and cultural intelligence.
 
-> **Simple Rules + Emotional Precision = Global Resonance**
 > **"We don't create hits - we discover the mathematical patterns that already resonate with human psychology."**
 
 ---
+
+## 🌍 Project Ecosystem
+
+MINOR_SHIFT is more than a single algorithm; it's a suite of tools for musicians, researchers, and developers.
+
+| Component | Description | Link |
+|-----------|-------------|------|
+| 📊 **Data & Analysis** | The raw data, lyrical analysis, and patterns that form the project's foundation. | [View Data](./LYRIC%20ANALYSIS.md) |
+| 🔬 **Research Paper** | A formal academic paper outlining the methodology and findings of the MINOR_SHIFT study. | [Read Paper](./paper/draft_outline.md) |
+| 🔌 **DAW/VST Plugin** | A plugin for digital audio workstations to integrate MINOR_SHIFT directly into the production workflow. | [Plugin Docs](./plugin/README.md) |
+| 🧪 **A/B Test Analyzer** | Protocols for testing MINOR_SHIFT blueprints with real-world producers and listeners. | [See Tests](./producer_ab_test.md) |
+
+---
+
+## 🚀 Quick Start
+
+Get started by cloning the repository and installing dependencies.
+
+```bash
+git clone https://github.com/JamesTheGiblet/minor_shift.git
+cd minor_shift
+npm install
+```
 
 ## 📊 The Evidence Base
 
@@ -36,30 +58,6 @@ const harmonicEvidence = {
 };
 ```
 
-### Command Line Usage
-
-```bash
-# Install (when available)
-npm install minor_shift
-
-# Generate a hit progression
-npx minor_shift generate --key Bm --style pop
-
-# Analyze an existing song
-npx minor_shift analyze --file my_song.mp3
-```
-
-## 📊 The Science Behind MINOR_SHIFT
-
-### Decade Analysis Results (2014-2023)
-
-| Metric | Finding | Impact |
-|--------|---------|---------|
-| **Key Preference** | 70% Minor Keys | Emotional complexity over simplicity |
-| **Chord Progression** | 70% i-VII-VI | Built-in emotional lift |
-| **Tempo Range** | 95-118 BPM | Streaming optimization |
-| **Song Length** | 2:45-3:15 | Attention span alignment |
-
 ### Validated Examples
 
 | Song | Artist | Progression | BPM |
@@ -68,6 +66,17 @@ npx minor_shift analyze --file my_song.mp3
 | "Heat Waves" | Glass Animals | F#m - E - D | 81 |
 | "Levitating" | Dua Lipa | Bm - A - G | 103 |
 | "Blinding Lights" | The Weeknd | Bm - D - G - A | 108 |
+
+### The Science Behind MINOR_SHIFT
+
+| Metric | Finding | Impact |
+|--------|---------|---------|
+| **Key Preference** | 70% Minor Keys | Emotional complexity over simplicity |
+| **Chord Progression** | 70% i-VII-VI | Built-in emotional lift |
+| **Tempo Range** | 95-118 BPM | Streaming optimization |
+| **Song Length** | 2:45-3:15 | Attention span alignment |
+
+---
 
 ## 🏗️ Architecture
 
@@ -149,7 +158,7 @@ const lesson = MinorShift.createLesson({
 ### The Emotional Mathematics
 
 ```txt
-MINOR_SHIFT = i (emotional depth) 
+MINOR_SHIFT = i (emotional depth)
              + VII (upward lift) 
              + VI (satisfying resolution)
 ```
@@ -184,23 +193,9 @@ minor_shift/
 │       └── educational-tools.js
 ├── docs/
 │   ├── research-paper.md
-│   ├── api-reference.md
-│   └── usage-examples.md
-└── examples/
-    ├── hit-generator-demo.js
-    ├── song-analyzer-demo.js
-    └── educational-demos/
-```
-
-## 🚀 Installation
-
-### Current Development Version
-
-```bash
-git clone https://github.com/JamesTheGiblet/minor_shift.git
-cd minor_shift
-npm install
-npm test
+│   ├── api-reference.md (Coming Soon)
+│   └── usage-examples.md (Coming Soon)
+└── examples/ (Coming Soon)
 ```
 
 ### Future Package Release

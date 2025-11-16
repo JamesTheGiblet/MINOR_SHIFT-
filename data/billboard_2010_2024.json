@@ -1,0 +1,91 @@
+{
+  "description": "Analysis of Billboard Hot 100 #1 songs from 2010-2024, including harmonic, lyrical, and streaming data.",
+  "lastUpdated": "2025-11-16",
+  "songs": [
+    {
+      "year": 2023,
+      "artist": "Miley Cyrus",
+      "title": "Flowers",
+      "chartPosition": 1,
+      "key": "Bm",
+      "progression": ["Bm", "A", "G"],
+      "bpm": 118,
+      "themes": ["Self-empowerment", "Post-breakup", "Independence"],
+      "genreFusion": ["Disco-pop revival"],
+      "streamingData": {
+        "spotifyStreams": 1600000000,
+        "youtubeViews": 700000000,
+        "saveRate": 0.12,
+        "skipRate": 0.21
+      }
+    },
+    {
+      "year": 2022,
+      "artist": "Glass Animals",
+      "title": "Heat Waves",
+      "chartPosition": 1,
+      "key": "F#m",
+      "progression": ["F#m", "E", "D"],
+      "bpm": 81,
+      "themes": ["Nostalgic longing", "Mental health", "Introspection"],
+      "genreFusion": ["Alt-pop", "Psychedelic"],
+      "streamingData": {
+        "spotifyStreams": 2500000000,
+        "youtubeViews": 500000000,
+        "saveRate": 0.15,
+        "skipRate": 0.18
+      }
+    },
+    {
+      "year": 2021,
+      "artist": "Dua Lipa",
+      "title": "Levitating",
+      "chartPosition": 1,
+      "key": "Bm",
+      "progression": ["Bm", "A", "G"],
+      "bpm": 103,
+      "themes": ["Euphoric love", "Escapism", "Dance"],
+      "genreFusion": ["Disco-pop", "Funk", "Futuristic pop"],
+      "streamingData": {
+        "spotifyStreams": 2500000000,
+        "youtubeViews": 700000000,
+        "saveRate": null,
+        "skipRate": null
+      }
+    },
+    {
+      "year": 2020,
+      "artist": "The Weeknd",
+      "title": "Blinding Lights",
+      "chartPosition": 1,
+      "key": "Fm",
+      "progression": ["Fm", "Eb", "Db", "Ab"],
+      "bpm": 171,
+      "themes": ["Loneliness", "Nostalgia", "Nightlife", "Desperation"],
+      "genreFusion": ["Synthwave", "80s revival", "Pop"],
+      "streamingData": {
+        "spotifyStreams": 4000000000,
+        "youtubeViews": 750000000,
+        "saveRate": null,
+        "skipRate": null
+      }
+    },
+    {
+      "year": 2019,
+      "artist": "Lil Nas X",
+      "title": "Old Town Road",
+      "chartPosition": 1,
+      "key": "G#m",
+      "progression": ["G#m", "E", "B", "F#"],
+      "bpm": 136,
+      "themes": ["Underdog success", "Genre defiance", "Rebellion"],
+      "genreFusion": ["Country-rap", "Trap"],
+      "streamingData": {
+        "spotifyStreams": 2000000000,
+        "youtubeViews": 1000000000,
+        "saveRate": null,
+        "skipRate": null
+      }
+    }
+  ]
+}
